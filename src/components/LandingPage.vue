@@ -61,10 +61,12 @@ import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 .middle-text {
   width: 100%;
   text-align: center; 
-  padding: 10px;     
+  padding: 10px;   
+  transition: all 0.3s ease;  
 }
+/* Hover over effect on text box */
 .middle-text:hover {
-  transform: translateY(-2px)
+  transform: translateY(-6px)
 }
 
 /* Header styling for text */
