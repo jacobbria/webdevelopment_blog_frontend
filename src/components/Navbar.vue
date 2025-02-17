@@ -37,7 +37,7 @@ export default {
   margin-top: 1px;
 }
 .custom-navbar {
-  height: 60px;
+  height: 80px;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }

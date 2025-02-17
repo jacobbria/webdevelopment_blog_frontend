@@ -15,5 +15,4 @@ import LandingPage from './components/LandingPage.vue'
   font-family: 'Teachers Pro', sans-serif;
 }
 
-
 </style>
