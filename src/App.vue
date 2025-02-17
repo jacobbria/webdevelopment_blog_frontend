@@ -9,6 +9,11 @@ import LandingPage from './components/LandingPage.vue'
 
 </template>
 
-<style scoped>
+<style>
+/* Sets font style for whole app */
+* {
+  font-family: 'Teachers Pro', sans-serif;
+}
+
 
 </style>
