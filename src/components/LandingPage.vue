@@ -74,7 +74,7 @@ h1 {
   font-weight: 900;
   font-size: 2.2rem;
   line-height: .8;
-  
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
 }
 
 h2 {
