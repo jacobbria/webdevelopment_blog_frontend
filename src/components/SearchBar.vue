@@ -57,7 +57,7 @@ p {
         }
         
         .search-input:focus {
-            border-color: #0d6efd;
+            border-color: rgb(70, 186, 176);
             box-shadow: none;
         }
         
@@ -72,7 +72,7 @@ p {
         }
         
         .search-button:hover {
-            background-color: #0b5ed7;
+            background-color: rgb(70, 186, 176);
             transform: translateY(-50%) scale(1.05);
         }
 </style>

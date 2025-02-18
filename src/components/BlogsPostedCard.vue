@@ -1,6 +1,6 @@
 <template>
     <div class="container my-5">
-      <div class="row">
+      <div class="row ">
         <div class="col-12 col-md-6 col-lg-4 p-3 d-flex justify-content-center align-items-center">
           <div class="total ">
             <h1>123 </h1>

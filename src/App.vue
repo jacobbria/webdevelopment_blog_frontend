@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.vue'
 import LandingPage from './components/LandingPage.vue'
 import SearchBar from './components/SearchBar.vue'
 import BlogsPostedCard from './components/BlogsPostedCard.vue'
+import BlogCard from './components/BlogCard.vue'
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import BlogsPostedCard from './components/BlogsPostedCard.vue'
 <LandingPage />
 <BlogsPostedCard />
 <SearchBar />
+<BlogCard />
 </template>
 
 <style>

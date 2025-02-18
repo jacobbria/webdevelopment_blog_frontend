@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="middle-text "> 
-            <h3>Developed, designed, and ran by students</h3>
+            <h3>Student developed, designed, and produced</h3>
           </div>
       </div>
       <!-- Animation HTML -->
