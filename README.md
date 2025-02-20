@@ -1,4 +1,4 @@
-# Web Dev Blog Front-ENd
+# Web Dev Blog Front-End
 This is the front-end for a collaborative project of the Franklin University Web Development Club. 
 The back-end is stored on a different repo.
 
