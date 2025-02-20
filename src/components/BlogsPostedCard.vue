@@ -42,9 +42,9 @@
     
 }
 
-h1 {
+.total h1 {
     margin-top: 10px;
-    font-size: 5rem;
+    font-size: 4rem;
     line-height: .9;
     font-weight: 600;
 }
