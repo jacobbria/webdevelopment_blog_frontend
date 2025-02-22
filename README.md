@@ -2,8 +2,8 @@
 The front-end repo for the a blog application. Students of Franklin will be able to post blogs
 and have a respective where they can manage their content. The back end is in a seperate repo.
 
-Links
-Current state of front-end: https://jacobbria.com/webdevelopment_blog_frontend/
+Links  
+Current state of front-end: https://jacobbria.com/webdevelopment_blog_frontend/  
 Back-end repo: https://github.com/jacobbria/webdev_backend_repo
 
 ## Stack
