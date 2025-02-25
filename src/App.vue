@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage.vue'
 import SearchBar from './components/SearchBar.vue'
 import BlogsPostedCard from './components/BlogsPostedCard.vue'
 import BlogCard from './components/BlogCard.vue'
+import TheFooter from './components/TheFooter.vue'
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import BlogCard from './components/BlogCard.vue'
 <BlogsPostedCard />
 <SearchBar />
 <BlogCard />
+<TheFooter />
 </template>
 
 <style>

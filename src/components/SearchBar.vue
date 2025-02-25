@@ -1,5 +1,5 @@
 <template>
-   <div class="con bg-light">
+   <div class="con bg-dark text-white">
     <p> Search for an author or topic</p>
     <div class="search-wrapper">
         <div class="search-box">
