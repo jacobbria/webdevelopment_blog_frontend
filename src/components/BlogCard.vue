@@ -38,7 +38,7 @@
 
 .row {
     transition: transform 0.5s ease, box-shadow 0.3s ease;
-    background-color: rgb(70, 186, 176);
+    background-color: rgb(228, 228, 228);
     padding: 5px;
     padding-top: 7px;
     border-radius: 20px;
@@ -60,7 +60,7 @@ img {
 }
 /* User Icon under Picture */
 .user_Icon {
-    background-color: rgb(47, 137, 129);
+    background-color: rgb(48, 48, 48);
     margin-top: 5px;
     margin-bottom: 17px;
     width: 400px;

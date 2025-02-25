@@ -14,6 +14,7 @@ import SeeMoreButton from './components/SeeMoreButton.vue'
 <BlogsPostedCard />
 <SearchBar />
 <BlogCard />
+<BlogCard />
 <SeeMoreButton />
 <TheFooter />
 </template>
