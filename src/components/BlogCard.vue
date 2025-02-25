@@ -20,30 +20,27 @@
                         printer took a galley of type and scrambled it to make a type
                         specimen book. It has survived not only...</p>
                     
-                    <div class="see_more ">
-                        <p>Read more</p>
-                    </div>
+                    
+                    <button class="expand-btn" role="button">Read More</button>
+                    
                 </div>
             </div>
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
 
 </script>
 
 <style scoped>
-.container {
-  
-}
+
 .row {
     background-color: rgb(70, 186, 176);
     padding: 8px;
     border-radius: 20px;
     margin: 5px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.6);
-    
+    box-shadow: 0 5px 10px rgba(0,0,0,0.6); 
 }
 
 .top_wrapper {
@@ -101,30 +98,14 @@ img {
     object-fit: cover;
 }
 /* Read More btn */
-.see_more {
-    border-radius: 45px;
-    background-color: rgb(47, 137, 129);
-    width: 170px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.6);
-    transition: all 0.3s ease; 
-    cursor: pointer;
-}
 .see_more:hover {
-    transform: translateY(-6px)
+    box-shadow: rgba(0, 0, 0, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+      transform: scale(1.05);
 }
 .see_more:active {
     opacity: .7;
 }
-.see_more p {
-    margin-top: 14px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: white;
-}
+
 h1 {
     margin-top: 9px;
     margin-left: 85px;

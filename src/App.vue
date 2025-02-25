@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar.vue'
 import BlogsPostedCard from './components/BlogsPostedCard.vue'
 import BlogCard from './components/BlogCard.vue'
 import TheFooter from './components/TheFooter.vue'
+import SeeMoreButton from './components/SeeMoreButton.vue'
 </script>
 
 <template>
@@ -13,9 +14,9 @@ import TheFooter from './components/TheFooter.vue'
 <BlogsPostedCard />
 <SearchBar />
 <BlogCard />
+<SeeMoreButton />
 <TheFooter />
 </template>
-
 <style>
 /* Sets font style for whole app */
 * {
