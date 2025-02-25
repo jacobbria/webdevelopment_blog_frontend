@@ -44,8 +44,13 @@
     border-radius: 20px;
 }
 .row:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+   
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+      transform: scale(1.02);
+}
+
+.expand-btn {
+    background-color: rgb(40, 40, 40);
 }
 .top_wrapper {
     display: flex;
@@ -76,7 +81,8 @@ img {
     cursor: pointer;
 }
 .user_Icon:hover {
-    transform: translateY(-6px);
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
 }
 .user_Icon:active {
     opacity: .7;
