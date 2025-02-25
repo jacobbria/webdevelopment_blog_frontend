@@ -1,6 +1,7 @@
 <template>
     <div class="container my-3">
-        <div class="row d-flex justify-content-center align-items-center">
+        <div class="row d-flex justify-content-center
+         align-items-center mx-3">
             <div class="row">
                 <div class="top_wrapper col-12 col-lg-5">
                    <img src="../assets/img/blog_image.jpg" >
@@ -36,28 +37,27 @@
 <style scoped>
 
 .row {
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
     background-color: rgb(70, 186, 176);
-    padding: 8px;
+    padding: 5px;
+    padding-top: 7px;
     border-radius: 20px;
-    margin: 5px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.6); 
 }
-
+.row:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
 .top_wrapper {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
-
 img {
     border: solid;
     border-width: 2px;
     width: 400px;
     border-radius: 20px;
 }
-
 /* User Icon under Picture */
 .user_Icon {
     background-color: rgb(47, 137, 129);
@@ -86,7 +86,6 @@ img {
     color: rgb(67, 67, 67);
     position: absolute;
 }
-
 .user-image {
     width: 70px; 
     height: 70px;
@@ -105,7 +104,6 @@ img {
 .see_more:active {
     opacity: .7;
 }
-
 h1 {
     margin-top: 9px;
     margin-left: 85px;

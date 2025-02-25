@@ -27,6 +27,7 @@ export default {
       user-select: none;
       -webkit-user-select: none;
       touch-action: manipulation;
+      margin: 5px;
       box-shadow: rgba(0, 0, 0, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
     }
     
