@@ -37,13 +37,13 @@ p {
         
         .search-box {
             position: relative;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(255, 0, 0, 0.05);
             border-radius: 50px;
             transition: all 0.3s ease;
         }
         
         .search-box:focus-within {
-            box-shadow: 0 3px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 20px rgb(2, 252, 98);
             transform: translateY(-2px);
         }
         
@@ -57,7 +57,7 @@ p {
         }
         
         .search-input:focus {
-            border-color: rgb(70, 186, 176);
+            border-color: rgb(255, 0, 0);
             box-shadow: none;
         }
         
@@ -72,7 +72,7 @@ p {
         }
         
         .search-button:hover {
-            background-color: rgb(70, 186, 176);
+            background-color: rgb(255, 12, 12);
             transform: translateY(-50%) scale(1.05);
         }
 </style>

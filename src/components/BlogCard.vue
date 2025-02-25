@@ -1,6 +1,7 @@
 <template>
     <div class="container my-3">
-        <div class="row d-flex justify-content-center align-items-center">
+        <div class="row d-flex justify-content-center
+         align-items-center mx-3">
             <div class="row">
                 <div class="top_wrapper col-12 col-lg-5">
                    <img src="../assets/img/blog_image.jpg" >
@@ -20,50 +21,51 @@
                         printer took a galley of type and scrambled it to make a type
                         specimen book. It has survived not only...</p>
                     
-                    <div class="see_more ">
-                        <p>Read more</p>
-                    </div>
+                    
+                    <button class="expand-btn" role="button">Read More</button>
+                    
                 </div>
             </div>
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
 
 </script>
 
 <style scoped>
-.container {
-  
-}
+
 .row {
-    background-color: rgb(70, 186, 176);
-    padding: 8px;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    background-color: rgb(228, 228, 228);
+    padding: 5px;
+    padding-top: 7px;
     border-radius: 20px;
-    margin: 5px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.6);
-    
+}
+.row:hover {
+   
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+      transform: scale(1.02);
 }
 
+.expand-btn {
+    background-color: rgb(40, 40, 40);
+}
 .top_wrapper {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
-
 img {
     border: solid;
     border-width: 2px;
     width: 400px;
     border-radius: 20px;
 }
-
 /* User Icon under Picture */
 .user_Icon {
-    background-color: rgb(47, 137, 129);
+    background-color: rgb(48, 48, 48);
     margin-top: 5px;
     margin-bottom: 17px;
     width: 400px;
@@ -79,7 +81,8 @@ img {
     cursor: pointer;
 }
 .user_Icon:hover {
-    transform: translateY(-6px);
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
 }
 .user_Icon:active {
     opacity: .7;
@@ -89,7 +92,6 @@ img {
     color: rgb(67, 67, 67);
     position: absolute;
 }
-
 .user-image {
     width: 70px; 
     height: 70px;
@@ -101,29 +103,12 @@ img {
     object-fit: cover;
 }
 /* Read More btn */
-.see_more {
-    border-radius: 45px;
-    background-color: rgb(47, 137, 129);
-    width: 170px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.6);
-    transition: all 0.3s ease; 
-    cursor: pointer;
-}
 .see_more:hover {
-    transform: translateY(-6px)
+    box-shadow: rgba(0, 0, 0, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+      transform: scale(1.05);
 }
 .see_more:active {
     opacity: .7;
-}
-.see_more p {
-    margin-top: 14px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: white;
 }
 h1 {
     margin-top: 9px;
