@@ -1,5 +1,5 @@
 <template>
-    <button class="expand-btn" role="button">See More</button>
+    <button @click="$emit('increase')" class="expand-btn" role="button">See More</button>
 </template>
     
 <script>
