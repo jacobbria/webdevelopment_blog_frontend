@@ -2,7 +2,6 @@
     <div class="container my-3">
         <div class="row d-flex justify-content-center
          align-items-center mx-3">
-            <div class="row">
                 <div class="top_wrapper col-12 col-lg-5">
                    <img src="../assets/img/blog_image.jpg" >
                    <div class="user_Icon">
@@ -24,7 +23,6 @@
                     
                     <button class="expand-btn" role="button">Read More</button>
                     
-                </div>
             </div>
         </div>
     </div>
@@ -60,15 +58,18 @@
 img {
     border: solid;
     border-width: 2px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     border-radius: 20px;
+
 }
 /* User Icon under Picture */
 .user_Icon {
     background-color: rgb(48, 48, 48);
     margin-top: 5px;
     margin-bottom: 17px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 53px;
     border-radius: 30px;
     display: flex;
