@@ -2,7 +2,6 @@
     <div class="container my-3">
         <div class="row d-flex justify-content-center
          align-items-center mx-3">
-            <div class="row">
                 <div class="top_wrapper col-12 col-lg-5">
                    <img src="../assets/img/blog_image.jpg" >
                    <div class="user_Icon">
@@ -24,7 +23,6 @@
                     
                     <button class="expand-btn" role="button">Read More</button>
                     
-                </div>
             </div>
         </div>
     </div>
