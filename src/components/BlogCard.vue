@@ -58,15 +58,18 @@
 img {
     border: solid;
     border-width: 2px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     border-radius: 20px;
+
 }
 /* User Icon under Picture */
 .user_Icon {
     background-color: rgb(48, 48, 48);
     margin-top: 5px;
     margin-bottom: 17px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 53px;
     border-radius: 30px;
     display: flex;
