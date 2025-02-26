@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from 'vue';
 import Navbar from './components/Navbar.vue'
 import LandingPage from './components/LandingPage.vue'
 import SearchBar from './components/SearchBar.vue'
@@ -7,7 +7,50 @@ import BlogsPostedCard from './components/BlogsPostedCard.vue'
 import BlogCard from './components/BlogCard.vue'
 import TheFooter from './components/TheFooter.vue'
 import SeeMoreButton from './components/SeeMoreButton.vue'
+import axios from 'axios';
+
 const count = ref(5); // tracks number of cards shown
+const posts = ref([]);      // Stores the fetched blog posts
+const loading = ref(false); // Tracks if a request is in progress to limit API calls and give loading bar
+const hasMore = ref(true);  // Flag to indicate whether there are more posts to load to make See More Btn available or not
+
+// Function to fetch blog posts
+const fetchPosts = async () => {
+  if (loading.value || !hasMore.value) return;
+
+  loading.value = true;
+  try {
+    const response = await axios.get(
+      'https://cdn.contentful.com/spaces/2zynx1qhiyas/entries',
+      {
+        params: {
+          access_token: 'ThGs2LPiO9dDkaeckwrgv27eLelE3SZr4cP-cl6066g',
+          content_type: 'resumeBlogPost',
+        },
+      }
+    );
+
+    if (response.data.items.length > 0) {
+      console.log('Number of blog posts:', response.data.items.length);
+      posts.value = [...posts.value, ...response.data.items]; // Append new posts
+      console.log('Total number of blog posts in array:', posts.value.length);
+    } else {
+      hasMore.value = false; // No more posts to load
+    }
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+  } finally {
+    loading.value = false; // Reset loading state
+  }
+};
+
+onMounted(async () => {
+  await fetchPosts(); // Wait until posts are fetched
+  posts.value.forEach((post, index) => {
+    console.log(`Post ${index + 1}:`, post);
+  });
+});
+
 </script>
 
 <template>
@@ -16,10 +59,13 @@ const count = ref(5); // tracks number of cards shown
 <BlogsPostedCard />
 <SearchBar />
   <!-- Temp for loop to give mock API feel -->
-  <div v-for="n in count" :key="n" class="box">
+  <div v-for="n in posts" :key="n" class="box">
       <BlogCard />
   </div>
-<SeeMoreButton @increase="count += 5" />
+  <!-- If no more blogs are available, hide see more btn -->
+  <div v-if="!hasMore">
+  <SeeMoreButton @increase="count += 5" />
+</div>
 <TheFooter />
 </template>
 <style>
