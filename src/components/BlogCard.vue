@@ -6,7 +6,7 @@
           <div class="user_Icon">
             <i class="fa-solid fa-circle"></i>
             <img src="../assets/img/userIcon.png" class="user-image" alt="User Icon">
-            <h1>John Smith</h1>
+            <h1>{{ truncatedName }}</h1>
           </div>
         </div>
         <div class="col-12 col-lg-7 d-flex flex-column justify-content-center align-items-center">
@@ -29,12 +29,24 @@
     }
   });
 
+  // Shorten Names for more readable cards
+  const truncatedName = computed(() => {
+  const name = props.post.fields.name.trim();
+  const parts = name.split(" ");
+  
+  if (parts.length > 1) {
+    return `${parts[0]} ${parts[1][0]}.`; 
+  }
+  
+  return name; 
+});
+
   // Shorten blog content for a more readable front page card
   const truncatedContent = computed(() => {
-  const content = props.post.fields.blogContent;
-  const maxLength = 300; // You can adjust this as needed
-  return content.length > maxLength ? content.slice(0, maxLength) + '...' : content;
-});  
+    const content = props.post.fields.blogContent;
+    const maxLength = 300; // You can adjust this as needed
+    return content.length > maxLength ? content.slice(0, maxLength) + '...' : content;
+  });
   </script>
   
   
@@ -51,7 +63,7 @@
 .row:hover {
    
     box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
-      transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 .expand-btn {
@@ -132,5 +144,18 @@ h2 {
 p {
     font-style: normal;
 }
+
+@media  (min-width: 500px) {
+    h1 {
+        font-size: 2.1rem;
+    }
+}
+
+@media  (min-width: 1300px) {
+    h1 {
+        font-size: 2.9rem;
+    }
+}
+
 
 </style>
