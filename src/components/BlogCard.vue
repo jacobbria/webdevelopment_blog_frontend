@@ -1,36 +1,43 @@
 <template>
-    <div class="container my-3">
-        <div class="row d-flex justify-content-center
-         align-items-center mx-3">
-                <div class="top_wrapper col-12 col-lg-5">
-                   <img src="../assets/img/blog_image.jpg" >
-                   <div class="user_Icon">
-                        <i class="fa-solid fa-circle"></i>
-                        <img src="../assets/img/userIcon.png" class="user-image">
-                        <h1> John Smith</h1>
-                    </div> 
-                </div>
-                <div class="col-12 col-lg-7 d-flex flex-column 
-                    justify-content-center align-items-center">
-                    <h2>Climbing the Technology Mountain</h2>
-
-                    <p> Lorem Ipsum is simply dummy text of the printing and 
-                        typesetting industry. Lorem Ipsum has been the industry's 
-                        standard dummy text ever since the 1500s, when an unknown 
-                        printer took a galley of type and scrambled it to make a type
-                        specimen book. It has survived not only...</p>
-                    
-                    
-                    <button class="expand-btn" role="button">Read More</button>
-                    
-            </div>
+    <div class="container my-3" v-if="post">
+      <div class="row d-flex justify-content-center align-items-center mx-3">
+        <div class="top_wrapper col-12 col-lg-5">
+          <img src="../assets/img/blog_image.jpg" alt="Blog Image">
+          <div class="user_Icon">
+            <i class="fa-solid fa-circle"></i>
+            <img src="../assets/img/userIcon.png" class="user-image" alt="User Icon">
+            <h1>John Smith</h1>
+          </div>
         </div>
+        <div class="col-12 col-lg-7 d-flex flex-column justify-content-center align-items-center">
+          <h2>{{ post.fields.title }}</h2>
+          <p>{{ truncatedContent }}</p>
+          <button class="expand-btn" role="button">Read More</button>
+        </div>
+      </div>
     </div>
-</template>
+  </template>
+  
+  <script setup>
+  import { defineProps, computed } from 'vue';
+  
+  // Define the props being passed from the parent component
+  const props = defineProps({
+    post: {
+      type: Object,
+      required: true
+    }
+  });
 
-<script setup>
-
-</script>
+  // Shorten blog content for a more readable front page card
+  const truncatedContent = computed(() => {
+  const content = props.post.fields.blogContent;
+  const maxLength = 300; // You can adjust this as needed
+  return content.length > maxLength ? content.slice(0, maxLength) + '...' : content;
+});  
+  </script>
+  
+  
 
 <style scoped>
 
@@ -121,6 +128,9 @@ h1 {
 h2 {
     font-style: italic;
     text-decoration: underline;
+}
+p {
+    font-style: normal;
 }
 
 </style>

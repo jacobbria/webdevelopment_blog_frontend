@@ -3,7 +3,7 @@
       <div class="row ">
         <div class="col-12 col-md-6 col-lg-4 p-3 d-flex justify-content-center align-items-center">
           <div class="total ">
-            <h1>123 </h1>
+            <h1> {{ allPosts }} </h1>
             <h2>Blogs Posted</h2>
           </div>
         </div>
@@ -15,7 +15,7 @@
         </div>
         <div class="col-12 col-md-12 col-lg-4 p-3  d-flex justify-content-center align-items-center text-center">
             <div class="total ">
-                <h1>420k+ </h1>
+                <h1> {{ allWords }}+</h1>
                 <h2>Words Written</h2>
           </div>
         </div>
@@ -24,7 +24,18 @@
   </template>
   
 
-<script>
+<script setup>
+
+const props = defineProps({
+  allPosts: {
+    type: Number,
+    required: true
+  },
+  allWords: {
+    type: Number,
+    required: true
+  }
+});
 
 </script>
 
