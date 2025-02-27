@@ -133,4 +133,17 @@ p {
     font-style: normal;
 }
 
+@media  (min-width: 500px) {
+    h1 {
+        font-size: 2.1rem;
+    }
+}
+
+@media  (min-width: 1300px) {
+    h1 {
+        font-size: 2.9rem;
+    }
+}
+
+
 </style>

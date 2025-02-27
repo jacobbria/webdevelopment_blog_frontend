@@ -7,6 +7,7 @@ import BlogsPostedCard from './components/BlogsPostedCard.vue'
 import BlogCard from './components/BlogCard.vue'
 import TheFooter from './components/TheFooter.vue'
 import SeeMoreButton from './components/SeeMoreButton.vue'
+import LoginModal from './components/LoginModal.vue';
 import axios from 'axios'; // axios make HTTP request simpler
 
 const count = ref(5); // tracks number of cards shown
@@ -38,7 +39,7 @@ const fetchPosts = async () => {
       response.data.item -> actual blogs obj from contenful 
     */
 
-    if (response.data.items.length > 0) {
+    if (response.data.items.length > 0) { // Ensure there is content or blogs
       console.log('Number of blog posts:', response.data.items.length);
 
       wordCount.value = 0; // Clear word count before recalculating
@@ -73,7 +74,7 @@ onMounted(async () => {
 });
 
 </script>
-
+<LoginModal />
 <template>
 <Navbar />
 <LandingPage />
