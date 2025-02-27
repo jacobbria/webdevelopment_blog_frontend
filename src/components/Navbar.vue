@@ -15,7 +15,7 @@
         </span>
         <span class="overlay-text text-white bg-dark">About</span>
       </a>
-      <a class="nav-link icon-container" href="#">
+      <a class="nav-link icon-container" @click="emit('toggleLoginModal')" href="#">
         <span class="fa-stack fa-lg icon">
           <i class="fa fa-circle fa-stack-2x text-white"></i>
           <i class="fa fa-user fa-stack-1x fa-inverse text-dark"></i>
@@ -26,10 +26,9 @@
   </nav>
 </template>
 
-<script>
-export default {
-  name: 'Navbar'
-}
+<script setup>
+ // emit definition needed to emit events to parent component
+const emit = defineEmits(['toggleLoginModal']) // toggleLoginModal to open Login Modal
 </script>
 
 <style scoped>

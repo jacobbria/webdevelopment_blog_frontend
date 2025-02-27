@@ -17,6 +17,12 @@ const loading = ref(false); // Tracks if a request is in progress
 const hasMore = ref(true); // Indicates if more posts are available
 const skip = ref(0); // Tracks the offset for pagination
 
+const loginModal = ref(false); // controls if login modal is open
+const toggleLoginModal = () => {
+  loginModal.value = !loginModal.value;
+  console.log(loginModal.value);
+}
+
 // Function to fetch blog posts from Contentful
 const fetchPosts = async () => {
   if (loading.value || !hasMore.value) return; // Prevent duplicate requests
@@ -68,10 +74,14 @@ onMounted(async () => {
 </script>
 
 <template>
-<Navbar />
+<Navbar @toggleLoginModal="toggleLoginModal" /> <!-- Emits toggleLoginModal event to Navbar -->
 <LandingPage />
+
 <!-- TO DO: Add Login Modal -->
-<LoginModal />
+<div v-if="loginModal">
+  <LoginModal @close="toggleLoginModal" />
+</div>
+
 <BlogsPostedCard :allPosts="posts.length > 0 ? posts.length : 0" :allWords="wordCount"/>
 <SearchBar />
   <!-- Temp for loop to give mock API feel -->
@@ -82,6 +92,7 @@ onMounted(async () => {
   </div>
   <!-- If no more blogs are available, hide see more btn -->
   <SeeMoreButton v-if="hasMore" @increase="fetchPosts" />
+  
 <TheFooter />
 </template>
 <style>
