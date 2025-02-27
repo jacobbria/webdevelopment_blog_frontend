@@ -144,6 +144,11 @@ h2 {
 p {
     font-style: normal;
 }
+@media  (min-width: 300px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+}
 
 @media  (min-width: 500px) {
     h1 {
