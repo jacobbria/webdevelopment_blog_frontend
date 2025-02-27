@@ -10,16 +10,16 @@ import SeeMoreButton from './components/SeeMoreButton.vue'
 import LoginModal from './components/LoginModal.vue';
 import axios from 'axios'; // axios make HTTP request simpler
 
-const count = ref(5); // tracks number of cards shown
-const wordCount = ref(0); // holds words counted
-const posts = ref([]);      // Holds the fetched blog posts
-const loading = ref(false); // Tracks if a request is in progress to limit API calls and give loading bar
-const hasMore = ref(true);  // Flag to indicate whether there are more posts to load to make See More Btn available or not
+const count = ref(5); // Tracks number of cards shown
+const wordCount = ref(0); // Holds words counted
+const posts = ref([]); // Holds the fetched blog posts
+const loading = ref(false); // Tracks if a request is in progress
+const hasMore = ref(true); // Indicates if more posts are available
+const skip = ref(0); // Tracks the offset for pagination
 
-// Function to fetch blog posts from Contenful (temporary for testing)
+// Function to fetch blog posts from Contentful
 const fetchPosts = async () => {
-  if (loading.value || !hasMore.value) return; // return if already making an API request or empty
-
+  if (loading.value || !hasMore.value) return; // Prevent duplicate requests
 
   loading.value = true;
   try {
@@ -28,53 +28,45 @@ const fetchPosts = async () => {
       {
         params: {
           access_token: 'ThGs2LPiO9dDkaeckwrgv27eLelE3SZr4cP-cl6066g',
-          content_type: 'resumeBlogPost',
+          content_type: 'studentBlogs',
+          limit: 5, // Fetch only 5 posts at a time
+          skip: skip.value, // Start from the last fetched index
         },
       }
     );
 
-    /*
-      response object -> entire Contentful obj
-      response.data -> parsed JSON Contentful obj
-      response.data.item -> actual blogs obj from contenful 
-    */
+    if (response.data.items.length > 0) {
+      console.log('Number of blog posts fetched:', response.data.items.length);
 
-    if (response.data.items.length > 0) { // Ensure there is content or blogs
-      console.log('Number of blog posts:', response.data.items.length);
-
-      wordCount.value = 0; // Clear word count before recalculating
-     
-      /* Get WordCount */
+      /* Update word count */
       response.data.items.forEach((post) => {
         const blogContent = post.fields.blogContent || "";
-        const wordCountForPost = blogContent.split(/\s+/).filter(Boolean).length; // Word count logic
-        post.wordCount = wordCountForPost; 
-        wordCount.value += wordCountForPost; 
-        console.log('Word Count', wordCount.value);
+        const wordCountForPost = blogContent.split(/\s+/).filter(Boolean).length;
+        post.wordCount = wordCountForPost;
+        wordCount.value += wordCountForPost;
       });
 
-
       posts.value = [...posts.value, ...response.data.items]; // Append new posts
-      console.log('Total number of blog posts in array:', posts.value.length);
+      skip.value += response.data.items.length; // Increase offset for next batch of posts
+
+      console.log('Total number of blog posts:', posts.value.length);
     } else {
-      hasMore.value = false; 
+      hasMore.value = false; // No more posts to load
     }
   } catch (error) {
     console.error('Error fetching blog posts:', error);
   } finally {
-    loading.value = false; // Reset loading state
+    loading.value = false;
   }
 };
-
 onMounted(async () => {
   await fetchPosts(); // Wait until posts are fetched
   posts.value.forEach((post, index) => { // print all posts for debug
     console.log(`Post ${index + 1}:`, post);
   });
 });
-
 </script>
-<LoginModal />
+
 <template>
 <Navbar />
 <LandingPage />
@@ -87,9 +79,7 @@ onMounted(async () => {
     </div>
   </div>
   <!-- If no more blogs are available, hide see more btn -->
-  <div v-if="!hasMore">
-  <SeeMoreButton @increase="count += 5" />
-</div>
+  <SeeMoreButton v-if="hasMore" @increase="fetchPosts" />
 <TheFooter />
 </template>
 <style>
