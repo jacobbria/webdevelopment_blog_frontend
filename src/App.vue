@@ -70,6 +70,8 @@ onMounted(async () => {
 <template>
 <Navbar />
 <LandingPage />
+<!-- TO DO: Add Login Modal -->
+<LoginModal />
 <BlogsPostedCard :allPosts="posts.length > 0 ? posts.length : 0" :allWords="wordCount"/>
 <SearchBar />
   <!-- Temp for loop to give mock API feel -->

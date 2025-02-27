@@ -63,7 +63,7 @@
 .row:hover {
    
     box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
-      transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 .expand-btn {

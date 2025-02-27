@@ -9,7 +9,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4 p-3  d-flex justify-content-center align-items-center text-center">
             <div class="total ">
-                <h1>50</h1>
+                <h1>X</h1>
                 <h2>Student Accounts</h2>
           </div>
         </div>
