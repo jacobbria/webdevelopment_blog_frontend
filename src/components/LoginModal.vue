@@ -30,6 +30,12 @@ const emit = defineEmits(['close'])
 </script>
 
 <style scoped>
+input {
+    background-color: white !important;  
+    color: black !important; 
+    -webkit-appearance: none;  /* Remove iOS default styling */
+    border: 1px solid #ced4da;  
+}
 .label {
   width: 80%;
 }
@@ -68,6 +74,7 @@ const emit = defineEmits(['close'])
 }
 
 .modal-content-bottom {
+  background: transparent !important; 
   height: 250px; 
   width: 100%; 
   padding-bottom: 20px;
@@ -109,6 +116,7 @@ hr {
 
 /* Animation Styling */
 iframe {
+  background: transparent !important;
   aspect-ratio: 1 / 1;
 }
 
