@@ -31,7 +31,7 @@ const emit = defineEmits(['close'])
 
 <style scoped>
 input {
-    background-color: white !important;  
+    background-color: rgb(220, 220, 220) !important;  
     color: black !important; 
     -webkit-appearance: none;  /* Remove iOS default styling */
     border: 1px solid #ced4da;  
@@ -53,10 +53,9 @@ input {
 
 /* Modal Content Box */
 .modal-content {
-  background-color: rgb(70, 186, 176);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   margin: 15% auto;
-  padding-top: 30px;
   padding-bottom: 20px;
   padding-left: 15px;
   padding-right: 15px;
@@ -64,7 +63,11 @@ input {
   width: 90%; 
   height: 600px; 
   position: relative;
-  overflow: hidden;  
+  overflow: hidden;
+  border-radius: 10px;
+  border-color: rgb(32, 53, 157);
+  border-width: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9); 
 }
 
 .modal-content-top {
@@ -84,11 +87,17 @@ input {
   padding-top: 10px;
   border-bottom: none;
 }
+h1 {
+  font-weight: 900;
+  font-size: 2.2rem;
+  line-height: .8;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
+}
 
 hr {
   width: 100%;
   height: 4px;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   opacity: 1;
 }
 
@@ -109,7 +118,7 @@ hr {
 
 .close:hover,
 .close:focus {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   text-decoration: none;
   cursor: pointer;
 }
