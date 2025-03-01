@@ -97,8 +97,8 @@ h4 {
 
 /* Animation Styling */
 iframe {
-  width: 100%; /* Adjust width */
-  max-width: 500px; /* Set max width */
+  width: 100%; /* With of Animation  */
+  max-width: 500px;
   aspect-ratio: 1 / 1; /* Keep it square */
 }
 
