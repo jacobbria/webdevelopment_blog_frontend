@@ -4,16 +4,24 @@
             <!-- Top Section -->
             <div class="modal-content-top">
                 <span class="close" @click="emit('close')">&times;</span>
-                <h1 class="mt-4">Sign in</h1>  
+                <h1 class="mt-3">Sign in</h1>  
                 <hr>
-                <div class="form-group-top d-flex flex-column justify-content-center align-items-center mt-3">
+                <div class="form-group-top d-flex flex-column justify-content-center align-items-center">
                     <div class="label d-flex "> <label for="username"><h2>Username</h2></label> </div>
                     <input type="text" id="username" name="username" placeholder="Enter your username" class="label">
                 </div>
-                <div class="form-group-top d-flex flex-column justify-content-center align-items-center mt-3">
+                <div class="form-group-top d-flex flex-column justify-content-center align-items-center mt-2">
                     <div class="label d-flex "> <label for="pasword"><h2>Password</h2></label> </div>
                     <input type="text" id="username" name="username" placeholder="Enter your password" class="label">
                 </div>
+                <div class="form-group-top  d-flex flex-column justify-content-start align-items-center mt-2">
+                    <button class="btn btn-dark">Login</button>
+                    <div class="account-options d-flex justify-content-between align-items-center">
+                      <a href="#">Forgot Password</a>
+                      <a href="#">Sign up</a>
+                    </div>
+                </div>
+                
             </div>
 
             <!-- Bottom Section with Animation -->
@@ -33,7 +41,7 @@ const emit = defineEmits(['close'])
 input {
     background-color: rgb(220, 220, 220) !important;  
     color: black !important; 
-    -webkit-appearance: none;  /* Remove iOS default styling */
+    -webkit-appearance: none;  
     border: 1px solid #ced4da;  
 }
 .label {
@@ -65,7 +73,6 @@ input {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  border-color: rgb(70, 186, 176);
   border-width: 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9); 
 }
@@ -82,7 +89,9 @@ input {
   width: 100%; 
   padding-bottom: 20px;
 }
-
+.btn {
+  width: 80%;
+}
 .modal-header {
   padding-top: 10px;
   border-bottom: none;
@@ -100,6 +109,12 @@ hr {
   background-color: rgb(0, 0, 0);
   opacity: 1;
 }
+
+/* Login Options */
+.account-options {
+  width: 80%;
+}
+
 
 /* The Close Button */
 .close {
