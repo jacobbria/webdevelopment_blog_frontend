@@ -8,7 +8,7 @@
                 <hr>
                 <div class="form-group-top d-flex flex-column justify-content-center align-items-center mt-3">
                     <div class="label d-flex "> <label for="username"><h2>Username</h2></label> </div>
-                    <input type="text" id="username" name="username" placeholder="Enter your password" class="label">
+                    <input type="text" id="username" name="username" placeholder="Enter your username" class="label">
                 </div>
                 <div class="form-group-top d-flex flex-column justify-content-center align-items-center mt-3">
                     <div class="label d-flex "> <label for="pasword"><h2>Password</h2></label> </div>
