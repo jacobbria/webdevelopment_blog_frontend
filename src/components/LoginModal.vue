@@ -65,7 +65,7 @@ input {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  border-color: rgb(32, 53, 157);
+  border-color: rgb(70, 186, 176);
   border-width: 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9); 
 }
