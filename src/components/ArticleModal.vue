@@ -71,7 +71,10 @@ const formatDate = (dateString) => {
   width: 90%;
   max-width: 800px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 /* Close Button Styles */
