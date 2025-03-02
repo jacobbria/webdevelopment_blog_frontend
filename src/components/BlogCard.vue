@@ -12,7 +12,7 @@
         <div class="col-12 col-lg-7 d-flex flex-column justify-content-center align-items-center">
           <h2>{{ post.fields.title }}</h2>
           <p>{{ truncatedContent }}</p>
-          <button class="expand-btn" role="button">Read More</button>
+          <button class="expand-btn" role="button" @click="emit('toggleArticleModal')">Read More</button>
         </div>
       </div>
     </div>
@@ -20,6 +20,7 @@
   
   <script setup>
   import { defineProps, computed } from 'vue';
+  const emit = defineEmits(['toggleArticleModal'])
   
   // Define the props being passed from the parent component
   const props = defineProps({
@@ -144,6 +145,7 @@ h2 {
 p {
     font-style: normal;
 }
+
 @media  (min-width: 300px) {
     h1 {
         font-size: 1.8rem;

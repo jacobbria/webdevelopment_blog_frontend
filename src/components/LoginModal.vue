@@ -33,7 +33,6 @@
 </template>
 
 <script setup>
-import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 const emit = defineEmits(['close'])
 </script>
 
