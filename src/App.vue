@@ -8,6 +8,7 @@ import BlogCard from './components/BlogCard.vue'
 import TheFooter from './components/TheFooter.vue'
 import SeeMoreButton from './components/SeeMoreButton.vue'
 import LoginModal from './components/LoginModal.vue';
+import ArticleModal from './components/ArticleModal.vue';
 import axios from 'axios'; // axios make HTTP request simpler
 
 const count = ref(5); // Tracks number of cards shown
@@ -17,6 +18,17 @@ const loading = ref(false); // Tracks if a request is in progress
 const hasMore = ref(true); // Indicates if more posts are available
 const skip = ref(0); // Tracks the offset for pagination
 
+// Article Modal Related Controls
+const articleModal = ref(false); // controls if article modal is open
+const selectedPost = ref(null); // Track which post was clicked
+
+const toggleArticleModal = (post) => {
+  selectedPost.value = post;
+  articleModal.value = !articleModal.value;
+  console.log('Article modal toggled:', articleModal.value);
+}
+
+// Login Modal Related Controls
 const loginModal = ref(false); // controls if login modal is open
 const toggleLoginModal = () => {
   loginModal.value = !loginModal.value;
@@ -77,21 +89,30 @@ onMounted(async () => {
 <Navbar @toggleLoginModal="toggleLoginModal" /> <!-- Emits toggleLoginModal event to Navbar -->
 <LandingPage />
 
-<!-- TO DO: Add Login Modal -->
+<!-- Login Modal -->
 <div v-if="loginModal">
   <LoginModal @close="toggleLoginModal" />
 </div>
 
 <BlogsPostedCard :allPosts="posts.length > 0 ? posts.length : 0" :allWords="wordCount"/>
 <SearchBar />
-  <!-- Temp for loop to give mock API feel -->
-  <div v-if="posts.length > 0">
-    <div v-for="post in posts" :key="post.sys.id" class="box">
-      <BlogCard :post="post" />
-    </div>
+
+<!-- Article Modal - moved outside the loop -->
+<div v-if="articleModal">
+  <ArticleModal 
+    :post="selectedPost" 
+    @toggleArticleModal="toggleArticleModal" 
+  />
+</div>
+
+<!-- Temp for loop to give mock API feel -->
+<div v-if="posts.length > 0">
+  <div v-for="post in posts" :key="post.sys.id" class="box">
+    <BlogCard :post="post" @toggleArticleModal="toggleArticleModal(post)" />
   </div>
-  <!-- If no more blogs are available, hide see more btn -->
-  <SeeMoreButton v-if="hasMore" @increase="fetchPosts" />
+</div>
+<!-- If no more blogs are available, hide see more btn -->
+<SeeMoreButton v-if="hasMore" @increase="fetchPosts" />
   
 <TheFooter />
 </template>

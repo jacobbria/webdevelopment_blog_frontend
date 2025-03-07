@@ -1,51 +1,19 @@
 <template>
     <div class="modal"> 
-      <div v-if="!signUpClick" class="modal-content d-flex flex-column">
+        <div class="modal-content d-flex flex-column">
+            <span class="close" @click="emit('close')">&times;</span>
             <!-- Top Section -->
-            <div class="modal-content-top">
-                <span class="close" @click="emit('close')">&times;</span>
-                <h1 class="mt-3">Sign in</h1>  
-                <hr>
-                <div class="form-group-top d-flex flex-column justify-content-center align-items-center">
-                    <div class="label d-flex "> <label for="username"><h2>Username</h2></label> </div>
-                    <input type="text" id="username" name="username" placeholder="Enter your username" class="label">
-                </div>
-                <div class="form-group-top d-flex flex-column justify-content-center align-items-center mt-2">
-                    <div class="label d-flex "> <label for="pasword"><h2>Password</h2></label> </div>
-                    <input type="text" id="username" name="username" placeholder="Enter your password" class="label">
-                </div>
-                <div class="form-group-top  d-flex flex-column justify-content-start align-items-center mt-2">
-                    <button class="btn btn-dark">Login</button>
-                    <div class="account-options d-flex justify-content-between align-items-center">
-                      <a href="#">Forgot Password</a>
-                      <button>Sign up</button>
-                    </div>
-                </div>
-                
-            </div>
+           <p> Test </p>
 
             <!-- Bottom Section with Animation -->
             <div class="modal-content-bottom  d-flex justify-content-center align-items-center">
-                <iframe src="https://lottie.host/embed/cc74741f-8da8-4189-bd75-9f0e2842d4c8/7WuBEDQBMI.lottie"></iframe>
+                <iframe src="https://lottie.host/embed/ba518ccf-0123-49a2-ad00-05411cf37d6a/7oiNqCAikR.lottie"></iframe>
             </div>
         </div>
-    </div>
-    <div v-if="signUpClick">
-      <SignupModal @close="openModal" />
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import SignupModal from './SignupModal.vue';
-const signUpClick = ref(false);
-const openModal = () => {
-  signUpClick.value = true;
-};
-const toggleSignUp = () => {
-  signUpClick.value = false;
-};
-
 const emit = defineEmits(['close'])
 </script>
 
@@ -60,7 +28,6 @@ input {
   width: 80%;
 }
 .modal {
-
   display: block; 
   position: fixed; 
   z-index: 10000; 
@@ -74,7 +41,6 @@ input {
 
 /* Modal Content Box */
 .modal-content {
-
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   margin: 15% auto;
