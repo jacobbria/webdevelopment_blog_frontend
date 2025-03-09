@@ -1,14 +1,14 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top custom-navbar">
     <div class="container-fluid justify-content-around">
-      <a class="nav-link icon-container" href="#">
+      <a class="nav-link icon-container" href="/index.html">
         <span class="fa-stack fa-lg icon d-flex justify-content-center align-items-center">
           <i class="fa fa-circle fa-stack-2x text-white"></i>
           <i class="fa fa-home fa-stack-1x fa-inverse text-dark"></i>
         </span>
         <span class="overlay-text text-white bg-dark">Home</span>
       </a>
-      <a class="nav-link icon-container" href="#">
+      <a class="nav-link icon-container" href="/index.html">
         <span class="fa-stack fa-lg icon">
           <i class="fa fa-circle fa-stack-2x text-white"></i>
           <i class="fa fa-book fa-stack-1x fa-inverse text-dark"></i>
@@ -32,6 +32,9 @@ const emit = defineEmits(['toggleLoginModal']) // toggleLoginModal to open Login
 </script>
 
 <style scoped>
+.navbar {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.9);
+}
 .fa-circle{
   margin-top: 1px;
 }

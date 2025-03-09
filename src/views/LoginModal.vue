@@ -1,14 +1,14 @@
 <template>
     <div class="modal"> 
-      <div v-if="!signUpClick" class="modal-content d-flex flex-column">
+      <div class="modal-content d-flex flex-column">
             <!-- Top Section -->
             <div class="modal-content-top">
                 <span class="close" @click="emit('close')">&times;</span>
                 <h1 class="mt-3">Sign in</h1>  
                 <hr>
                 <div class="form-group-top d-flex flex-column justify-content-center align-items-center">
-                    <div class="label d-flex "> <label for="username"><h2>Username</h2></label> </div>
-                    <input type="text" id="username" name="username" placeholder="Enter your username" class="label">
+                    <div class="label d-flex "> <label for="email"><h2>Email</h2></label> </div>
+                    <input type="text" id="email" name="email" placeholder="Enter your email" class="label">
                 </div>
                 <div class="form-group-top d-flex flex-column justify-content-center align-items-center mt-2">
                     <div class="label d-flex "> <label for="pasword"><h2>Password</h2></label> </div>
@@ -17,8 +17,8 @@
                 <div class="form-group-top  d-flex flex-column justify-content-start align-items-center mt-2">
                     <button class="btn btn-dark">Login</button>
                     <div class="account-options d-flex justify-content-between align-items-center">
-                      <a href="#">Forgot Password</a>
-                      <button>Sign up</button>
+                      <a href="">Forgot Password</a>
+                      <router-link to="/signup">Sign Up</router-link>
                     </div>
                 </div>
                 
@@ -30,26 +30,27 @@
             </div>
         </div>
     </div>
-    <div v-if="signUpClick">
-      <SignupModal @close="openModal" />
-    </div>
+
 </template>
 
 <script setup>
+// Imports
 import { ref } from 'vue';
-import SignupModal from './SignupModal.vue';
-const signUpClick = ref(false);
-const openModal = () => {
-  signUpClick.value = true;
-};
-const toggleSignUp = () => {
-  signUpClick.value = false;
-};
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
+//
+const goToSignUp = () => {
+  router.push('/signup');
+  emit('close');
+}
+
+// Emits
 const emit = defineEmits(['close'])
 </script>
 
 <style scoped>
+
 input {
     background-color: rgb(220, 220, 220) !important;  
     color: black !important; 
@@ -127,6 +128,8 @@ hr {
 /* Login Options */
 .account-options {
   width: 80%;
+  margin-top: 10px;
+  gap: 10px;
 }
 
 
@@ -154,6 +157,7 @@ hr {
 
 /* Animation Styling */
 iframe {
+  pointer-events: none; /* Prevent iframe from being clickable but allows above elements to be clickable*/
   background: transparent !important;
   aspect-ratio: 1 / 1;
 }

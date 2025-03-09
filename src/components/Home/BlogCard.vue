@@ -2,10 +2,10 @@
     <div class="container my-3" v-if="post">
       <div class="row d-flex justify-content-center align-items-center mx-3">
         <div class="top_wrapper col-12 col-lg-5">
-          <img src="../assets/img/blog_image.jpg" alt="Blog Image">
+          <img src="../../assets/img/blog_image.jpg" alt="Blog Image">
           <div class="user_Icon">
             <i class="fa-solid fa-circle"></i>
-            <img src="../assets/img/userIcon.png" class="user-image" alt="User Icon">
+            <img src="../../assets/img/userIcon.png" class="user-image" alt="User Icon">
             <h1>{{ truncatedName }}</h1>
           </div>
         </div>
