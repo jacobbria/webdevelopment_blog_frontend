@@ -35,20 +35,16 @@
 
 <script setup>
 // Imports
-import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
-
 //
 const goToSignUp = () => {
   router.push('/signup');
   emit('close');
 }
-
 // Emits
 const emit = defineEmits(['close'])
 </script>
-
 <style scoped>
 
 input {
