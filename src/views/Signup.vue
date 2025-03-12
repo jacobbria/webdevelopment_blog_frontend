@@ -3,7 +3,7 @@
   <div class="container d-flex justify-content-center align-items-center">
     <div class="row col-12 col-md-6 col-lg-4">
       <div class="modal-content">
-        <h1 class="mt-3">Sign in</h1>  
+        <h1 class="mt-3">Sign up</h1>  
         <h2>Create an account to get started</h2>
         <hr>
         <div class="input-section ">
@@ -36,16 +36,16 @@ const email = ref("");
 const password = ref("");
 
 // Login function to send a POST request
-const signup = async () => {
+const signup = async () => { 
   console.log(email.value + " " + password.value);
   try {
-    const response = await fetch("api-goes here", { // TO DO -- input API
+    const response = await fetch("api-goes here", { // TO DO -- input API || response is JS object holding server meta data
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email.value,  // VALUE == data
+        email: email.value, 
         password: password.value,
       }),
     });
