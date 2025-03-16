@@ -12,7 +12,12 @@
         <div class="col-12 col-lg-7 d-flex flex-column justify-content-center align-items-center">
           <h2>{{ post.fields.title }}</h2>
           <p>{{ truncatedContent }}</p>
-          <button class="expand-btn" role="button" @click="emit('toggleArticleModal')">Read More</button>
+         
+          <router-link :to="{ path: '/article', state: { post } }" class="expand-btn">
+            Read More
+          </router-link>
+          <!-- Old Read More Btn-->
+         <!--<button class="expand-btn" role="button" @click="emit('toggleArticleModal')">Read More</button> -->
         </div>
       </div>
     </div>

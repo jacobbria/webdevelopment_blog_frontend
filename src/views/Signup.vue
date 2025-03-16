@@ -35,7 +35,7 @@ import { ref } from "vue";
 const email = ref("");
 const password = ref("");
 
-// Login function to send a POST request
+// function to send a POST request w/ entered values
 const signup = async () => { 
   console.log(email.value + " " + password.value);
   try {
