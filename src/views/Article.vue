@@ -1,45 +1,23 @@
 <template>
-    <Navbar />
-        <div class="content">
-            <h1> {{ post?.fields?.title }}  </h1>
-            <p> Test </p>
-        </div>
-    <TheFooter />
+    <div v-if="post">
+      <h1>{{ post.fields.title }}</h1>
+      
+      <p>{{ post.fields.blogContent }}</p>
+    </div>
   </template>
   
-  <script setup="js">
-import Navbar from '../components/Nav/Navbar.vue';
-import TheFooter from '../components/Nav/TheFooter.vue';
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
-const post = route.state?.post; // Get the passed object
-
-console.log(post?.fields?.title) ; // Debugging
+  <script setup>
+  import { usePostStore } from '../stores/postStore';  // Import the store
   
-const props = defineProps({
-    post: {
-      type: Object,
-      required: true
-    }
-  })
-
-    // Format date to be more readable
-    const formatDate = (dateString) => {
-    if (!dateString) return '';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
-
+  const postStore = usePostStore();  // Access the Pinia store
+  
+  const post = postStore.post;  // Retrieve the post from the store
   </script>
   
   <style scoped>
     .content {
-        margin-top: 100px;
-        height: 100vh;
+      margin-top: 100px;
+      height: 100vh;
     }
   </style>
+  
