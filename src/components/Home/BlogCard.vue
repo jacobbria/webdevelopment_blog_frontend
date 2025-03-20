@@ -12,7 +12,9 @@
         <div class="col-12 col-lg-7 d-flex flex-column justify-content-center align-items-center">
           <h2>{{ post.fields.title }}</h2>
           <p>{{ truncatedContent }}</p>
-          <button class="expand-btn" role="button" @click="emit('toggleArticleModal')">Read More</button>
+            <router-link :to="{ path: '/article' }" class="expand-btn" @click="setPostAndNavigate">
+              Read More
+            </router-link>
         </div>
       </div>
     </div>
@@ -20,6 +22,13 @@
   
   <script setup>
   import { defineProps, computed } from 'vue';
+  
+  import { usePostStore } from '../../stores/postStore'; // import store for article
+  const postStore = usePostStore();  // Access the Pinia store
+  const setPostAndNavigate = () => {
+    postStore.setPost(props.post);  // Store the post in Pinia
+  };
+
   const emit = defineEmits(['toggleArticleModal'])
   
   // Define the props being passed from the parent component

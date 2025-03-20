@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import './style.css'
 import App from './App.vue'
 import router from './router'
@@ -11,5 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const app = createApp(App)
-app.use(router)
-app.mount('#app')
+const pinia = createPinia();
+app.use(pinia);
+app.use(router);
+app.mount('#app');
