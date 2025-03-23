@@ -4,7 +4,7 @@
 
 
 <!-- Copyright -->
-<div class="text-center p-3 mt-2 flexalign-items-center justify-content-center" style="background-color: rgba(0, 0, 0, 0.2);">
+<div class="text-center p-3 flexalign-items-center justify-content-center" style="background-color: rgba(0, 0, 0, 0.2);">
   <div class="">
     <a class="text-white" href="https://www.franklin.edu/current-students/student-services/student-life/student-organizations-activities" target="_blank">
        <img src="../../assets/img/web_dev_logo_nobg.png" > 

@@ -23,6 +23,12 @@ const routes = [
     component: () => import('../views/Article.vue'),
     props: true
   },
+  {
+    path: '/userprofile',
+    name: 'Profile',
+    component: () => import('../views/UserProfile.vue'),
+    props: true
+  },
   // Add more routes as needed
 ]
 
