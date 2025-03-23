@@ -1,0 +1,1 @@
+import{_ as a,u as r,c,d as n,e as t,b as o,t as s,o as l}from"./index-B1S_8Pa6.js";const _={key:0},p={__name:"Article",setup(i){const e=r().post;return(u,f)=>t(e)?(l(),c("div",_,[o("h1",null,s(t(e).fields.title),1),o("p",null,s(t(e).fields.blogContent),1)])):n("",!0)}},S=a(p,[["__scopeId","data-v-6a53819e"]]);export{S as default};
