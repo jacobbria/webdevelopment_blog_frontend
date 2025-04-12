@@ -24,6 +24,15 @@
             <p>Requires @franklin.edu & valid characters</p>
           </div>
         </div>
+        <div class="input-section" >
+          <h2>Phone</h2>
+          <input v-model="phone" type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter your phone number" class="label">
+        </div>
+        <div class="error-container d-flex justify-content-center">
+          <div class="error-section " id="phone-error">
+            <p>Must be 10 digits</p>
+          </div>
+        </div>
         <div  class="input-section">
           <h2> Password</h2>
           <input v-model="password" type="password" id="password" name="password" placeholder="Enter your password" class="label">
@@ -35,7 +44,7 @@
         </div>
         <div  class="input-section">
           <h2>Re-enter Password</h2>
-          <input type="password" id="passwordRentry" name="passwordRentry" placeholder="Re-enter your password" class="label">
+          <input v-model="passwordRentry" type="password" id="passwordRentry" name="password" placeholder="Re-enter your password" class="label">
          </div>   
          <div class="error-container d-flex justify-content-center">
           <div class="error-section " id="reenterpassword-error">
@@ -55,12 +64,17 @@ import { useRouter } from 'vue-router';
 import Navbar from '../components/Nav/Navbar.vue';
 import TheFooter from '../components/Nav/TheFooter.vue';
 import { ref } from "vue";
+import { useAuthStore } from '../stores/auth' // testing cookie storing user information
 
 // Define reactive variables for form fields
 const nameInput = ref("");
 const email = ref("");
+const phone = ref("");
 const password = ref("");
 const passwordRentry = ref("");
+
+// Initialize auth store
+const authStore = useAuthStore();
 
 const router = useRouter();
 
@@ -77,11 +91,13 @@ const signup = async () => {
         name: nameInput.value,
         email: email.value, 
         password: password.value,
+        mobileNumber: phone.value,
       }),
     });
 
 
-     console.log(password.value + " " + passwordRentry.value);
+    // console.log(password.value + " " + passwordRentry.value);
+    console.log(phone.value);
     if (password.value !== passwordRentry.value) {
       let element =  document.getElementById("reenterpassword-error");
       element.style.visibility = "visible";
@@ -89,6 +105,9 @@ const signup = async () => {
       passwordRentry.value = "";
       console.log("passwords dont match")
       return;
+    } else {
+      let element =  document.getElementById("reenterpassword-error");
+      element.style.visibility = "hidden";
     }
 
     const result = await response.json();
@@ -101,13 +120,20 @@ const signup = async () => {
       return;
     } else {
       console.log("Success!");
-      router.push({ name: 'Home' });
+      // Store the email in Pinia before navigation
+      authStore.setUser(nameInput.value);
+      authStore.setEmail(email.value);
+      router.push({ 
+        name: 'Signupvalidation'
+      });
     }
   } catch (error) {
     console.error("Error logging in:", error);
   }
+
 };
 
+// In the event of an error try and present helpful information to user
 const displayError = (result) => {
   let element = null;
     if (result.statusMsg.includes("name")){
@@ -123,6 +149,21 @@ const displayError = (result) => {
       element = document.getElementById("nameInput");
       element.style.outline = "none";
     }
+
+    if (result.statusMsg.includes("mobileNumber")){
+      element = document.getElementById("phone-error");
+      element.style.visibility = "visible";
+
+      phone.value = "";
+      element = document.getElementById("mobileNumber");
+      element.style.outline = "2px solid red";
+    } else {
+      element = document.getElementById("phone-error");
+      element.style.visibility = "hidden";
+      element = document.getElementById("mobileNumber");
+      element.style.outline = "none";
+    }
+
 
     if (result.statusMsg.includes("email")){
       element = document.getElementById("email-error");

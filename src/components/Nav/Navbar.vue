@@ -8,7 +8,7 @@
         </span>
         <span class="overlay-text text-white bg-dark">Home</span>
       </a>
-      <a class="nav-link icon-container" href="/index.html">
+      <a class="nav-link icon-container" @click="sendToAbout">
         <span class="fa-stack fa-lg icon">
           <i class="fa fa-circle fa-stack-2x text-white"></i>
           <i class="fa fa-book fa-stack-1x fa-inverse text-dark"></i>
@@ -27,8 +27,15 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
  // emit definition needed to emit events to parent component
 const emit = defineEmits(['toggleLoginModal']) // toggleLoginModal to open Login Modal
+const router = useRouter(); // router
+
+
+const sendToAbout = () => { // TO DO -- pass users view to AboutPage
+  router.push({ name: 'Signupvalidation' });
+}
 </script>
 
 <style scoped>
