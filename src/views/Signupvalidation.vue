@@ -7,9 +7,9 @@
         <h2> Get verified to start posting! </h2>
 <br>
         <div class="button_section d-flex justify-content-center align-items-center gap-3">
-          <div class="home button">
-            <h1> Home </h1>
-          </div>
+          <a href="index.html" class="home button">
+            <h1>Home</h1>
+          </a>
           <div class="account button">
             <h1> Account </h1>
           </div>
@@ -29,10 +29,17 @@ const authStore = useAuthStore()
 </script>
 
 <style>
+body, html {
+  background-color: yellowgreen;
+}
+a {
+  text-decoration: none;
+  color:rgba(0, 0, 0, 0.8)
+}
 .background {
   margin-top: 80px;
-  height: 95vh;
-  background-color: yellowgreen;
+  margin-bottom: 0;
+  min-height: 100vh;
 }
 .content_body {
   background-color: white;
@@ -49,7 +56,7 @@ const authStore = useAuthStore()
   background-color: yellowgreen;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  width: 150px;
+  width: 170px;
   padding: 10px;
   transition: background-color .4s ease, transform 0.3s ease;
 }

@@ -203,6 +203,7 @@ const displayError = (result) => {
 
 <style scoped>
 .container {
+  background-color: yellowgreen;
   margin-top: 100px;
   height: 95vh;
 }
