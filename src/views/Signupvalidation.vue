@@ -10,7 +10,7 @@
           <a href="index.html" class="home button">
             <h1>Home</h1>
           </a>
-          <div class="account button">
+          <div class="account button" @click="sendToAccount">
             <h1> Account </h1>
           </div>
         </div>
@@ -25,12 +25,17 @@ import { useRouter } from 'vue-router';
 import Navbar from '../components/Nav/Navbar.vue';
 import TheFooter from '../components/Nav/TheFooter.vue';
 
-const authStore = useAuthStore()
+const authStore = useAuthStore();
+const router = useRouter();
+
+const sendToAccount = () => {
+  router.push('/UserProfile');
+}
 </script>
 
 <style>
 body, html {
-  background-color: yellowgreen;
+  background-color: var(--color-primary);
 }
 a {
   text-decoration: none;
@@ -53,7 +58,7 @@ a {
   display: flex;
   justify-content: center;
   align-content: center;
-  background-color: yellowgreen;
+  background-color: var(--color-primary);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   width: 170px;

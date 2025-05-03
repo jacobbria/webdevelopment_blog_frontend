@@ -1,7 +1,7 @@
 <template>
   <Navbar />
   <div class="container d-flex justify-content-center align-items-center">
-    <div class="row col-12 col-md-6 col-lg-4">
+    <div class="row col-12 col-md-8 col-lg-6">
       <div class="modal-content">
         <h1 class="mt-3">Sign up</h1>  
         <h2>Create an account to get started</h2>
@@ -203,8 +203,7 @@ const displayError = (result) => {
 
 <style scoped>
 .container {
-  background-color: yellowgreen;
-  margin-top: 100px;
+  margin-top: 7vh;
   height: 95vh;
 }
 .modal-content {
@@ -249,5 +248,11 @@ iframe {
 }
 .error-section p {
   font-size: small;
+}
+</style>
+
+<style  >
+body {
+  background-color: var(--color-primary);
 }
 </style>

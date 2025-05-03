@@ -21,7 +21,12 @@ const routes = [
     path: '/signupvalidation',
     name: 'Signupvalidation',
     component: () => import('../views/signupvalidation.vue'),
-  }
+  },
+  {
+    path: '/UserProfile',
+    name: 'userprofile',
+    component: () => import('../views/UserProfile.vue'),
+  },
   // Add more routes as needed
 ]
 
