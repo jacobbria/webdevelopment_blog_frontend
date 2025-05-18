@@ -1,11 +1,12 @@
 <template>
-  <Navbar />
-  <div class="background d-flex justify-content-center align-items-center"> 
-     <div class="content_body top">
+  <div class="page-wrapper">
+    <Navbar />
+    <div class="background d-flex justify-content-center align-items-center"> 
+      <div class="content_body top">
         <iframe src="https://lottie.host/embed/d864c402-85e4-4b80-93ea-5975d2f577d0/6qZkIyIO7a.lottie"></iframe>
         <h1> Verification sent to {{ authStore.getEmail }}</h1>
         <h2> Get verified to start posting! </h2>
-<br>
+        <br>
         <div class="button_section d-flex justify-content-center align-items-center gap-3">
           <a href="index.html" class="home button">
             <h1>Home</h1>
@@ -14,9 +15,10 @@
             <h1> Account </h1>
           </div>
         </div>
+      </div>
     </div>
+    <TheFooter />
   </div>
-  <TheFooter />
 </template>
 
 <script setup>
@@ -33,19 +35,20 @@ const sendToAccount = () => {
 }
 </script>
 
-<style>
-body, html {
+<style scoped>
+.page-wrapper {
+  min-height: 100vh;
   background-color: var(--color-primary);
 }
-a {
-  text-decoration: none;
-  color:rgba(0, 0, 0, 0.8)
-}
+
 .background {
   margin-top: 80px;
   margin-bottom: 0;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  background-color: var(--color-primary);
 }
+
 .content_body {
   background-color: white;
   border-radius: 10px;
@@ -69,7 +72,11 @@ a {
 .button:hover {
   cursor: pointer;
   background-color: rgb(254, 195, 83);
-  transform:  translateX(10px);
+  transform: translateX(10px);
 }
 
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+}
 </style>

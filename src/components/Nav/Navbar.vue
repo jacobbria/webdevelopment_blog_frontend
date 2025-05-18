@@ -15,7 +15,7 @@
         </span>
         <span class="overlay-text text-white bg-dark">About</span>
       </a>
-      <a class="nav-link icon-container" @click="emit('toggleLoginModal')" href="#">
+      <a class="nav-link icon-container" @click.prevent="login">
         <span class="fa-stack fa-lg icon">
           <i class="fa fa-circle fa-stack-2x text-white"></i>
           <i class="fa fa-user fa-stack-1x fa-inverse text-dark"></i>
@@ -27,12 +27,20 @@
 </template>
 
 <script setup>
+import { useAuthStore } from '../../stores/auth';
 import { useRouter } from 'vue-router';
  // emit definition needed to emit events to parent component
 const emit = defineEmits(['toggleLoginModal']) // toggleLoginModal to open Login Modal
+
+const store = useAuthStore();
 const router = useRouter(); // router
-
-
+const login = () => {
+  if (store.isUserAuthenticated) {
+    router.push('/UserProfile');
+  } else {
+    emit('toggleLoginModal');
+  }
+}
 const sendToAbout = () => { // TO DO -- pass users view to AboutPage
   router.push({ name: 'Signupvalidation' });
 }

@@ -1,39 +1,62 @@
 import { defineStore } from 'pinia'
+import Cookies from 'js-cookie'
 
 export const useAuthStore = defineStore('auth', {
-  state: () => {
-    // Try to load saved state from localStorage
-    const savedState = localStorage.getItem('auth')
-    return savedState ? JSON.parse(savedState) : {
-      user: null,
-      isAuthenticated: false,
-      email: null
-    }
-  },
+  state: () => ({
+    user: null,
+    isAuthenticated: false,
+    email: null
+  }),
   
   actions: {
     setUser(userData) {
       this.user = userData
       this.isAuthenticated = true
-      this.saveState()
+      // Set secure cookie with user data
+      Cookies.set('auth_token', JSON.stringify(userData), {
+        expires: 7, // Cookie expires in 7 days
+        secure: true, // Only sent over HTTPS
+        sameSite: 'strict' // Protect against CSRF
+      })
     },
+
     setEmail(email) {
       this.email = email
-      this.saveState()
+      Cookies.set('user_email', email, {
+        expires: 7,
+        secure: true,
+        sameSite: 'strict'
+      })
     },
+
     clearUser() {
       this.user = null
       this.isAuthenticated = false
       this.email = null
-      this.saveState()
+      // Remove cookies on logout
+      Cookies.remove('auth_token')
+      Cookies.remove('user_email')
     },
-    // Helper method to save state to localStorage
-    saveState() {
-      localStorage.setItem('auth', JSON.stringify({
-        user: this.user,
-        isAuthenticated: this.isAuthenticated,
-        email: this.email
-      }))
+
+    // Initialize auth state from cookies
+    initializeAuth() {
+      const authToken = Cookies.get('auth_token')
+      const userEmail = Cookies.get('user_email')
+      
+      if (authToken) {
+        try {
+          const userData = JSON.parse(authToken)
+          this.user = userData
+          this.isAuthenticated = true
+        } catch (e) {
+          console.error('Error parsing auth token:', e)
+          this.clearUser()
+        }
+      }
+      
+      if (userEmail) {
+        this.email = userEmail
+      }
     }
   },
   

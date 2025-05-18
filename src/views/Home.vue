@@ -116,10 +116,15 @@ onMounted(async () => {
   
 <TheFooter />
 </template>
+<style scope>
+
+
+</style>
 <style>
 /* Sets font style for whole app */
 * {
   font-family: 'Teachers Pro', sans-serif;
 }
+
 
 </style>

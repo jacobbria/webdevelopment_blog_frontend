@@ -30,13 +30,13 @@ import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 </script>
 
 <style scoped>
+/* Component-specific styles */
 .container {
   margin-top: 90px;
 }
 .landing_wrapper {
   margin-top: 30px;
   height: 35vh;
-  
 }
 
 .top_wrapper {
@@ -51,7 +51,6 @@ import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
   padding-top: 2rem;
   overflow: visible;
-  
 }
 
 .text-content {
@@ -88,7 +87,6 @@ h3 {
   padding: 5px;
   background-color: rgb(70, 186, 176);
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); 
-
 }
 
 h4 {
@@ -107,9 +105,6 @@ iframe {
   height: 100%;
   border: none;
 }
-
-
-
 
 /* Responsive Screen Code */
 @media (min-width: 576px) {
@@ -146,4 +141,33 @@ iframe {
     font-size: 1.2rem;
   }
 }
+</style>
+
+<style>
+/* Global styles */
+body {
+  background-color: #ffffff !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Ensure the background color is applied to the root element */
+#app {
+  background-color: #ffffff !important;
+  min-height: 100vh;
+}
+
+/* Add a transition class */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* You can add other global styles here */
 </style>

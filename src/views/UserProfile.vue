@@ -2,8 +2,8 @@
     <Navbar />
     <div class="content_wrapper d-flex align-items-center justify-content-center">
         <div class="loginSection d-flex flex-column justify-content-center align-items-center">
-            <img src="../assets/img/userIcon.png">
-            <h1 id="greetingSection"><span id="nameTag">Hello, </span> {{ name }}</h1>
+            <img class="headIcon" src="../assets/img/userIcon.png">
+            <h1 id="greetingSection"><span id="nameTag">Hello, </span> {{ store.getUser || 'User' }}</h1>
 
             <!-- Buttons -->
              <div class="d-flex flex-column gap-3 justify-content-center align-items-center">
@@ -19,47 +19,49 @@
 <script setup>
 import Navbar from '../components/Nav/Navbar.vue';
 import TheFooter from '../components/Nav/TheFooter.vue';
-import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useAuthStore } from '../stores/auth';
 
-const name = ref(" John ");
+const store = useAuthStore();
 const router = useRouter();
 
 const signOutClicked = () => {
-    console.log("Signout Clicked");
-    router.push("/")
+    store.clearUser(); // Clear the user data from store
+    router.push({name: "Home"});
 }
 
 </script>
 
 <style scoped>
-body {
-    background-color: var(--color-primary);
-}
-
 .content_wrapper {
+    background-color: var(--color-primary);
     min-height: 100vh;
     padding: 10vh;
+    position: relative;
+    z-index: 1;
 }
+
 .loginSection {
     background-color: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
-
-    width: 70%;
+    width: 40%;
     min-height: 600px;
     border-radius: 10px;
+    padding: 4vh;
 }
-button {
+
+.button {
     background-color: var(--color-primary);
     color: white;
     width: 90%;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-button:hover {
-    cursor: pointer;
+.button:hover {
     background-color: rgb(254, 195, 83);
     transform: translateX(10px);
 }
@@ -67,8 +69,8 @@ button:hover {
 #greetingSection {
     margin-top: 1vh;
 }
+
 #nameTag {
     color: var(--color-primary);
 }
-
 </style>
