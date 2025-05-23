@@ -82,7 +82,7 @@ const router = useRouter();
 const signup = async () => { 
   console.log(nameInput.value + " " + email.value + " " + password.value);
   try {
-    const response = await fetch("http://localhost:8081/api/create", { // TO DO -- input API || response is JS object holding server meta data
+    const response = await fetch("http://127.0.0.1:8081/api/users/register", { 
       method: "POST",
       headers: {
         "Content-Type": "application/json",

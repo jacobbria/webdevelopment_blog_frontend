@@ -55,7 +55,7 @@ const password = ref("");
 const tryLogin = async () => {
   console.log("Logged in attempt - ", email.value, password.value);
   try {
-    const response = await fetch("http://localhost:8081/api/login", { // Login endpoint
+    const response = await fetch("http://127.0.0.1:8081/api/users/login", { // Login endpoint
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -12,8 +12,9 @@ import ArticleModal from '../components/Home/ArticleModal.vue';
 import axios from 'axios'; // axios make HTTP request simpler
 
 const count = ref(5); // Tracks number of cards shown
-const wordCount = ref(0); // Holds words counted
-const posts = ref([]); // Holds the fetched blog posts
+let wordCount = ref(0); // Holds words counted
+let posts = ref([]); // Holds the fetched blog posts
+let accounts = ref(0);
 const loading = ref(false); // Tracks if a request is in progress
 const hasMore = ref(true); // Indicates if more posts are available
 const skip = ref(0); // Tracks the offset for pagination
@@ -76,12 +77,39 @@ const fetchPosts = async () => {
   } finally {
     loading.value = false;
   }
+
+
 };
+
+const fetchUsersCount = async () => {
+  try {
+    const response = await axios.get('http://127.0.0.1:8081/api/users/allusers');
+    console.log('API response:', response.data); // Debug: see what is returned
+
+    // If the API returns an array directly
+    if (Array.isArray(response.data)) {
+      accounts.value = response.data.length;
+    } else if (Array.isArray(response.data.users)) {
+      accounts.value = response.data.users.length;
+    } else {
+      // Fallback: try to count keys if it's an object
+      accounts.value = Object.keys(response.data).length;
+      console.warn('Unexpected response structure, counted object keys instead.');
+    }
+    console.log('Number of user accounts:', accounts.value);
+  } catch (error) {
+    console.error('Error fetching user accounts:', error);
+    accounts.value = 0;
+  }
+}
+
 onMounted(async () => {
   await fetchPosts(); // Wait until posts are fetched
   //posts.value.forEach((post, index) => { // print all posts for debug
   //  console.log(`Post ${index + 1}:`, post);
   //});
+  await fetchUsersCount();
+
 });
 </script>
 
