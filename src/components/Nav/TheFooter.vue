@@ -1,4 +1,5 @@
 <template>
+
   <footer class="footer bg-dark text-center text-white w-100">
     <!-- Copyright -->
     <div class="text-center p-3 mt-2 d-flex align-items-center justify-content-center">
@@ -9,6 +10,7 @@
       </div>
     </div>
   </footer>
+
 </template>
 
 <script>

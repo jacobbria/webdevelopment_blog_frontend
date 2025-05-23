@@ -15,7 +15,9 @@
                     <input type="password" id="password" name="password" v-model="password" placeholder="Enter your password" class="label">
                 </div>
                 <div class="form-group-top  d-flex flex-column justify-content-start align-items-center mt-2">
+
                     <button class="btn btn-dark" @click="tryLogin">Login</button>
+
                     <div class="account-options d-flex justify-content-between align-items-center">
                       <a href="">Forgot Password</a>
                       <router-link to="/signup">Sign Up</router-link>
@@ -42,6 +44,11 @@ const router = useRouter();
 //
 const goToSignUp = () => {
   router.push('/signup');
+  emit('close');
+}
+
+const RouteToLogin = () => {
+  router.push('/userprofile');
   emit('close');
 }
 // Emits

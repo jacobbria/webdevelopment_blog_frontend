@@ -1,5 +1,6 @@
 <template>
     <Navbar />
+
     <div class="content_wrapper d-flex align-items-center justify-content-center">
         <div class="loginSection d-flex flex-column justify-content-center align-items-center">
             <img class="headIcon" src="../assets/img/userIcon.png">
@@ -11,12 +12,14 @@
                 <div class="d-flex flex-column justify-content-center align-items-center button"> <img src="../assets/img/blogSettingsIcon.png"> Blog Management </div>
                 <div class="d-flex flex-column justify-content-center align-items-center button" @click="signOutClicked">  <img src="../assets/img/signoutIcon.png">Sign Out </div>
              </div>
+
         </div>
     </div>
     <TheFooter />
 </template>
 
 <script setup>
+
 import Navbar from '../components/Nav/Navbar.vue';
 import TheFooter from '../components/Nav/TheFooter.vue';
 import { useRouter } from 'vue-router';
@@ -72,5 +75,6 @@ const signOutClicked = () => {
 
 #nameTag {
     color: var(--color-primary);
+
 }
 </style>

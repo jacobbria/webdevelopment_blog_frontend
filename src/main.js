@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const app = createApp(App)
+
 const pinia = createPinia()
 
 app.use(pinia)

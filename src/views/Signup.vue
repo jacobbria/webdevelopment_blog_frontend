@@ -78,7 +78,7 @@ const authStore = useAuthStore();
 
 const router = useRouter();
 
-// Login function to send a POST request
+// function to send a POST request w/ entered values
 const signup = async () => { 
   console.log(nameInput.value + " " + email.value + " " + password.value);
   try {
