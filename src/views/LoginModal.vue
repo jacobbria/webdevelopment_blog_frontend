@@ -8,14 +8,16 @@
                 <hr>
                 <div class="form-group-top d-flex flex-column justify-content-center align-items-center">
                     <div class="label d-flex "> <label for="email"><h2>Email</h2></label> </div>
-                    <input type="text" id="email" name="email" placeholder="Enter your email" class="label">
+                    <input type="text" id="email" name="email" v-model="email" placeholder="Enter your email" class="label">
                 </div>
                 <div class="form-group-top d-flex flex-column justify-content-center align-items-center mt-2">
-                    <div class="label d-flex "> <label for="pasword"><h2>Password</h2></label> </div>
-                    <input type="text" id="username" name="username" placeholder="Enter your password" class="label">
+                    <div class="label d-flex "> <label for="password"><h2>Password</h2></label> </div>
+                    <input type="password" id="password" name="password" v-model="password" placeholder="Enter your password" class="label">
                 </div>
                 <div class="form-group-top  d-flex flex-column justify-content-start align-items-center mt-2">
-                    <button class="btn btn-dark" @click="RouteToLogin">Login</button>
+
+                    <button class="btn btn-dark" @click="tryLogin">Login</button>
+
                     <div class="account-options d-flex justify-content-between align-items-center">
                       <a href="">Forgot Password</a>
                       <router-link to="/signup">Sign Up</router-link>
@@ -36,6 +38,8 @@
 <script setup>
 // Imports
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
+import { useAuthStore } from '../stores/auth';
 const router = useRouter();
 //
 const goToSignUp = () => {
@@ -49,7 +53,55 @@ const RouteToLogin = () => {
 }
 // Emits
 const emit = defineEmits(['close'])
+
+// Login attempts
+const store = useAuthStore();
+const email = ref("");
+const password = ref("");
+
+const tryLogin = async () => {
+  console.log("Logged in attempt - ", email.value, password.value);
+  try {
+    const response = await fetch("http://127.0.0.1:8081/api/users/login", { // Login endpoint
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        usernameOrEmail: email.value,
+        password: password.value,
+      }),
+    });
+
+    if (!response.ok) {
+      console.log("Error on account creation");
+    }
+
+    const result =  await response.json();
+    console.log("Full response:", result); // Log the entire response
+
+    if (result.statusCode === '200') {
+      console.log("Successful login")
+      console.log("Status message:", result.statusMsg);
+      console.log("User data:", result.userName);
+      // Store the user data
+      store.setUser(result.userName);
+      store.setEmail(email.value);
+      console.log(store.getUser);
+
+      router.push('/UserProfile');
+    } else {
+      // Handle error cases
+      console.error("Login failed:", result.statusMsg, result.statusCode);
+      // You might want to show this error to the user
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
+}
 </script>
+
 <style scoped>
 
 input {
