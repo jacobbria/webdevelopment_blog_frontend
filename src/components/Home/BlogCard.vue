@@ -54,7 +54,7 @@
   // Shorten blog content for a more readable front page card
   const truncatedContent = computed(() => {
     const content = props.post.fields.blogContent;
-    const maxLength = 300; // You can adjust this as needed
+    const maxLength = 300; // adjust this as needed
     return content.length > maxLength ? content.slice(0, maxLength) + '...' : content;
   });
   </script>
@@ -65,19 +65,19 @@
 
 .row {
     transition: transform 0.5s ease, box-shadow 0.3s ease;
-    background-color: rgb(228, 228, 228);
+    background-color: var(--color-secondary-alt);
     padding: 5px;
     padding-top: 7px;
     border-radius: 20px;
 }
 .row:hover {
-    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    box-shadow: var(--shadow-1);
     transform: scale(1.02);
 }
 
 .expand-btn {
-    background-color: rgb(40, 40, 40);
-    color: white;
+    background-color: var(--color-grey);
+    color: var(--color-white);
 }
 .top_wrapper {
     display: flex;
@@ -94,7 +94,7 @@ img {
 }
 /* User Icon under Picture */
 .user_Icon {
-    background-color: rgb(48, 48, 48);
+    background-color: var(--color-grey);
     margin-top: 5px;
     margin-bottom: 17px;
     width: 100%;
@@ -107,19 +107,19 @@ img {
     padding-left: 0px;
     position: relative;
     transition: all 0.3s ease; 
-    box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+    box-shadow: var(--shadow-1);
     cursor: pointer;
 }
 .user_Icon:hover {
-    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    box-shadow: var(--insetShadow-1);
     transform: scale(1.05);
 }
 .user_Icon:active {
     opacity: .7;
 }
 .fa-solid {
-    font-size: 80px; 
-    color: rgb(67, 67, 67);
+    font-size: var(--font-size-5xl); 
+    color: var(--color-secondary-alt);
     position: absolute;
 }
 .user-image {
@@ -134,8 +134,8 @@ img {
 }
 /* Read More btn */
 .see_more:hover {
-    box-shadow: rgba(0, 0, 0, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
-      transform: scale(1.05);
+    box-shadow: var(--insetShadow-2);
+     transform: scale(1.05);
 }
 .see_more:active {
     opacity: .7;
@@ -143,9 +143,7 @@ img {
 h1 {
     margin-top: 9px;
     margin-left: 85px;
-    font-size: 3.6rem;
-    font-weight: 500;
-    color: white;
+    color: var(--color-white);
 }
 h2 {
     font-style: italic;
@@ -157,19 +155,19 @@ p {
 
 @media  (min-width: 300px) {
     h1 {
-        font-size: 1.8rem;
+        font-size: var(--font-size-2xl);
     }
 }
 
 @media  (min-width: 500px) {
     h1 {
-        font-size: 2.1rem;
+        font-size: var(--font-size-3xl);
     }
 }
 
 @media  (min-width: 1300px) {
     h1 {
-        font-size: 2.9rem;
+        font-size: var(--font-size-5xl);
     }
 }
 

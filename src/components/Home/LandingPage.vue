@@ -3,8 +3,8 @@
     <div class="row justify-content-center">
       <div class="landing_wrapper col-11 col-lg-8 p-3">
         <div class="top_wrapper flex align-items-center">
-          <div class="headers w-100 flex text-content">
-            <h1>Franklin Tech Blog</h1>
+          <div class=" headers w-100 flex text-content ">
+            <h1 class="text-title-lg">Franklin Tech Blog</h1>
             <h2>A student driven learning platform.</h2>
           </div>
         </div>
@@ -46,9 +46,9 @@ import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
   align-items: flex-start;
   height: 20vh;
   padding: 20px;
-  background-color: #f7f1dc;
+  background-color: var(--color-secondary);
   border-radius: 15px; 
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: var(--shadow-2); 
   padding-top: 2rem;
   overflow: visible;
 }
@@ -69,12 +69,7 @@ import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 }
 
 /* Header styling for text */
-h1 {
-  font-weight: 900;
-  font-size: 2.2rem;
-  line-height: .8;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
-}
+
 
 h2 {
   font-size: 1.3rem;
@@ -82,11 +77,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1.2rem;
-  color: rgb(255, 255, 255);
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
   padding: 5px;
-  background-color: rgb(70, 186, 176);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); 
+  background-color: var(--color-primary);
+  text-shadow: var(--textShadow-1); 
 }
 
 h4 {
@@ -132,31 +127,18 @@ iframe {
    margin-top: 0;
   }
   h1 {
-    font-size: 4.2rem;
+    font-size: var(--font-size-7xl);
   }
   h2 {
-    font-size: 2rem;
+    font-size: var(--font-size-3xl);
   }
   h3 {
-    font-size: 1.2rem;
+    font-size: var(--font-size-xl);
   }
 }
 </style>
 
 <style>
-/* Global styles */
-body {
-  background-color: #ffffff !important;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-}
-
-/* Ensure the background color is applied to the root element */
-#app {
-  background-color: #ffffff !important;
-  min-height: 100vh;
-}
 
 /* Add a transition class */
 .fade-enter-active,

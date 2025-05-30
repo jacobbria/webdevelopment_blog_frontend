@@ -10,10 +10,9 @@ export default {
     
     <style>
     .expand-btn {
-      background-color: rgb(47, 137, 129);
+      background-color: var(--color-primary);
       border: 0;
       border-radius: 56px;
-      color: #fff;
       cursor: pointer;
       display: inline-block;
       font-size: 24px;
@@ -28,7 +27,8 @@ export default {
       -webkit-user-select: none;
       touch-action: manipulation;
       margin: 5px;
-      box-shadow: rgba(0, 0, 0, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-3);
     }
     
     .expand-btn:before {
@@ -45,7 +45,7 @@ export default {
     }
     
     .expand-btn:hover {
-      box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+      box-shadow: var(--shadow-4);
       transform: scale(1.05);
     }
 

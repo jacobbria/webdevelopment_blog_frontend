@@ -105,10 +105,10 @@ const tryLogin = async () => {
 <style scoped>
 
 input {
-    background-color: rgb(220, 220, 220) !important;  
+    background-color:  var(--color-white) !important;  
     color: black !important; 
     -webkit-appearance: none;  
-    border: 1px solid #ced4da;  
+    border: 1px solid var(--color-secondary-alt);  
 }
 .label {
   width: 80%;
@@ -123,19 +123,19 @@ input {
   width: 100%; 
   height: 100%; 
   overflow: auto; 
-  background-color: rgba(0,0,0,0.5); 
+  background-color: var(--color-grey-transparent); 
 }
 
 /* Modal Content Box */
 .modal-content {
 
-  background-color: rgb(255, 255, 255);
+  background-color: var(--color-white);
   color: rgb(0, 0, 0);
   margin: 15% auto;
   padding-bottom: 20px;
   padding-left: 15px;
   padding-right: 15px;
-  border: 1px solid #888;
+  border: 1px solid var(--color-grey);
   width: 90%; 
   height: 600px; 
   position: relative;
@@ -168,13 +168,13 @@ h1 {
   font-weight: 900;
   font-size: 2.2rem;
   line-height: .8;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
+  text-shadow: 1px 1px 3px var(--color-grey); 
 }
 
 hr {
   width: 100%;
   height: 4px;
-  background-color: rgb(0, 0, 0);
+  background-color: var(--color-grey);
   opacity: 1;
 }
 
@@ -194,16 +194,17 @@ hr {
   top: 0;
   bottom: 1.1;
   margin: auto;
-  color: #ff0000;
+  color: var(--color-error);
   float: right;
   font-size: 2.5rem;
   font-weight: bold;
   height: 50px;
+  transition: .2s;
 }
 
 .close:hover,
 .close:focus {
-  color: rgb(0, 0, 0);
+  color: var(--color-grey);
   text-decoration: none;
   cursor: pointer;
 }

@@ -84,7 +84,7 @@ const fetchPosts = async () => {
 const fetchUsersCount = async () => {
   try {
     const response = await axios.get('http://127.0.0.1:8081/api/users/allusers');
-    console.log('API response:', response.data); // Debug: see what is returned
+    //console.log('API response:', response.data); // Debug: see what is returned
 
     // If the API returns an array directly
     if (Array.isArray(response.data)) {
@@ -105,9 +105,6 @@ const fetchUsersCount = async () => {
 
 onMounted(async () => {
   await fetchPosts(); // Wait until posts are fetched
-  //posts.value.forEach((post, index) => { // print all posts for debug
-  //  console.log(`Post ${index + 1}:`, post);
-  //});
   await fetchUsersCount();
 
 });
@@ -144,10 +141,7 @@ onMounted(async () => {
   
 <TheFooter />
 </template>
-<style scope>
 
-
-</style>
 <style>
 /* Sets font style for whole app */
 * {

@@ -21,11 +21,11 @@
 /* Search Bar Styling */
 .con {
   width: 100%;
-  padding: 1rem;
+  padding: var(--spacing-md);
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: var(--font-size-xl);
   padding: 5px;
   font-style: italic;
 }
@@ -37,13 +37,12 @@ p {
         
         .search-box {
             position: relative;
-            box-shadow: 0 2px 15px rgba(255, 0, 0, 0.05);
             border-radius: 50px;
             transition: all 0.3s ease;
         }
         
         .search-box:focus-within {
-            box-shadow: 0 3px 20px rgb(2, 252, 98);
+            box-shadow: 0 3px 20px var(--color-primary);
             transform: translateY(-2px);
         }
         
@@ -55,12 +54,7 @@ p {
             transition: all 0.3s ease;
             height: 50px;
         }
-        
-        .search-input:focus {
-            border-color: rgb(255, 0, 0);
-            box-shadow: none;
-        }
-        
+              
         .search-button {
             position: absolute;
             right: 5px;
@@ -72,7 +66,6 @@ p {
         }
         
         .search-button:hover {
-            background-color: rgb(255, 12, 12);
             transform: translateY(-50%) scale(1.05);
         }
 </style>

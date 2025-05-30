@@ -27,8 +27,25 @@ const routes = [
     path: '/UserProfile',
     name: 'userprofile',
     component: () => import('../views/UserProfile.vue'),
-
   },
+    {
+    path: '/testPage',
+    name: 'testpage',
+    component: () => import('../views/testPage.vue'),
+  },
+  {
+    path: '/article',
+    name: 'article',
+    component: () => import('../views/Article.vue'),
+  },
+  {
+    path: '/accountsettings',
+    name: 'settings',
+    component: () => import('../views/account_Views/AccountSettings.vue'),
+  },
+
+
+
   // Add more routes as needed
 ]
 

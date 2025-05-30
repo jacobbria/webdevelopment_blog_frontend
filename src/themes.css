@@ -1,3 +1,4 @@
+/* Central hub for app-wide settings */
 :root {
   /* Typography */
   --font-family-primary: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -12,14 +13,17 @@
   --font-size-2xl: 1.5rem;    /* 24px */
   --font-size-3xl: 2rem;      /* 32px */
   --font-size-4xl: 2.5rem;    /* 40px */
-
+  --font-size-5xl: 3.0rem;    /* 40px */
+  --font-size-6xl: 3.5rem;    /* 40px */
+  --font-size-7xl: 4.0rem;    /* 40px */
   /* Font Weights */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  --font-weight-bold: 900;
 
   /* Line Heights */
+  --line-height-condensed: .8;
   --line-height-tight: 1.2;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
@@ -38,16 +42,16 @@
   --border-radius-lg: 1rem;
   --border-radius-full: 9999px;
 
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-normal: 250ms ease;
-  --transition-slow: 350ms ease;
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-
+  --shadow-1: 0 5px 10px rgba(0,0,0,0.6);
+  --shadow-2: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-3: rgba(0, 0, 0, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  --shadow-4: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  --insetShadow-1: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  --insetShadow-2: rgba(0, 0, 0, 0.2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  --textShadow-1: 1px 1px 3px rgba(0, 0, 0, 0.4); 
+  
   /* Z-index */
   --z-index-dropdown: 1000;
   --z-index-sticky: 1020;
@@ -61,20 +65,17 @@
 :root {
   /* Colors - Light Theme */
   --color-primary: rgb(70, 186, 176);
-  --color-primary-hover: #535bf2;
-  --color-secondary: #747bff;
-  
-  --color-background: #ffffff;
-  --color-background-alt: #f9f9f9;
+  --color-primary-hover: rgb(139, 231, 224);
+  --color-secondary: #f7f1dc;
+  --color-secondary-alt: rgb(228, 228, 228);
+
+  --color-grey: rgb(40, 40, 40);
+  --color-grey-transparent: rgba(0,0,0,0.5);
   --color-background-elevated: #ffffff;
-  
-  --color-text: #213547;
-  --color-text-muted: #666666;
-  --color-text-inverted: #ffffff;
-  
-  --color-border: #e2e8f0;
-  --color-border-hover: #cbd5e1;
-  
+
+   --color-white: rgb(255, 255, 255);
+
+   /* Utility colors */
   --color-success: #22c55e;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
@@ -107,7 +108,7 @@
   }
 }
 
-/* Common Utility Classes */
+/* Utility Classes */
 .text-primary { color: var(--color-primary); }
 .text-secondary { color: var(--color-secondary); }
 .text-muted { color: var(--color-text-muted); }
@@ -116,6 +117,14 @@
 .bg-secondary { background-color: var(--color-secondary); }
 .bg-elevated { background-color: var(--color-background-elevated); }
 
+.text-title-lg {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-3xl);
+  line-height: .8;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
+}
+
+
 /* Accessibility and Default Styles */
 body {
   font-family: var(--font-family-primary);
@@ -123,6 +132,12 @@ body {
   line-height: var(--line-height-normal);
   color: var(--color-text);
   background-color: var(--color-background);
+}
+
+/* Styling for app*/
+#app {
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* Focus styles for better accessibility */

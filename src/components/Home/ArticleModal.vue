@@ -61,7 +61,7 @@ const formatDate = (dateString) => {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(188, 19, 19, 0.5);
 }
 
 .modal-content {

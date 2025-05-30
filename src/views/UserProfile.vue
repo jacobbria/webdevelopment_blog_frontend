@@ -7,8 +7,8 @@
             <h1 id="greetingSection"><span id="nameTag">Hello, </span> {{ store.getUser || 'User' }}</h1>
 
             <!-- Buttons -->
-             <div class="d-flex flex-column gap-3 justify-content-center align-items-center">
-                <div class="d-flex flex-column justify-content-center align-items-center button"> <img src="../assets/img/accountSettingIcon.png"> Account Settings </div>
+             <div class="d-flex  gap-3 justify-content-center align-items-center">
+                <div class="d-flex flex-column justify-content-center align-items-center button" @click="accountSettingClicked"> <img src="../assets/img/accountSettingIcon.png"> Account Settings </div>
                 <div class="d-flex flex-column justify-content-center align-items-center button"> <img src="../assets/img/blogSettingsIcon.png"> Blog Management </div>
                 <div class="d-flex flex-column justify-content-center align-items-center button" @click="signOutClicked">  <img src="../assets/img/signoutIcon.png">Sign Out </div>
              </div>
@@ -33,6 +33,10 @@ const signOutClicked = () => {
     router.push({name: "Home"});
 }
 
+const accountSettingClicked = () => {
+    router.push({name: "settings"});
+}
+
 </script>
 
 <style scoped>
@@ -45,7 +49,7 @@ const signOutClicked = () => {
 }
 
 .loginSection {
-    background-color: white;
+    background-color: var(--color-white);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
     width: 40%;
     min-height: 600px;
@@ -55,7 +59,7 @@ const signOutClicked = () => {
 
 .button {
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-white);
     width: 90%;
     padding: 15px;
     border-radius: 10px;
